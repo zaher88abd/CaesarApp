@@ -9,15 +9,9 @@ public class CaesarCipher {
     private String cryptedInput;
     private Integer shiftValue;
 
-    public CaesarCipher(String input, String cryptedInput, Integer shiftValue) {
-        this.input = input;
-        this.cryptedInput = cryptedInput;
-        this.shiftValue = shiftValue;
+    public CaesarCipher() {
     }
 
-    public String getInput() {
-        return input;
-    }
 
     public void setInput(String input) {
         this.input = input;
@@ -25,10 +19,6 @@ public class CaesarCipher {
 
     public String getCryptedInput() {
         return cryptedInput;
-    }
-
-    public void setCryptedInput(String cryptedInput) {
-        this.cryptedInput = cryptedInput;
     }
 
     public Integer getShiftValue() {
@@ -48,7 +38,7 @@ public class CaesarCipher {
             if (letter != ' ') {
                 ascii = (int) letter;
                 ascii = ascii + (this.shiftValue % 26);
-                ascii = ascii > 'z' ? ascii - 26 : ascii;
+                ascii = ascii > 'Z' ? ascii - 26 : ascii;
                 cryptedInput = cryptedInput + (char) ascii;
             } else {
                 cryptedInput = cryptedInput + ' ';
